@@ -26,7 +26,7 @@ for the example above
 
 ## Benchmarking
 
-`sbt "benchmark LENGTH` where LENGTH is the length of a randomly generating string. You should see an output such as:
+`sbt "benchmark LENGTH"` where LENGTH is the length of a randomly generating string. You should see an output such as:
 
 ```
     Running palindromes.Benchmark 10000
