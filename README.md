@@ -1,5 +1,5 @@
 # Overview
-This is an exercise that consist of finding the 3 longest palindromes in a given string. The results need to be such that no two results share the same central letter or pair of letters.
+This is an exercise that consists of finding the 3 longest palindromes in a given string. The results need to be such that no two results share the same central letter or pair of letters.
 For example, the longest palindromes in the string `sqrrqabccbatudefggfedvwhijkllkjihxymnnmzpop` are, in order:
 
 1. hijkllkjih
