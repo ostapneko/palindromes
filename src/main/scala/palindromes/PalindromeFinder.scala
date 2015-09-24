@@ -43,9 +43,14 @@ case class PalindromeFinder(str: String) {
    * @param n The length of the result
    */
   def findLongest(n: Int): Seq[Palindrome] = {
-    val odd = Range(0, str.length - 1).map(i => longestAround(i, i))
-    val even = doubleLetterIndices.map(i => longestAround(i, i + 1))
-    (odd ++ even).sortBy(- _.length).take(3)
+    val longestOdd = Stream.from(0).take(str.length).map(i => longestAround(i, i))
+    val longestEven = doubleLetterIndices.toStream.map(i => longestAround(i, i + 1))
+    longestOdd.append(longestEven).foldLeft(Seq[Palindrome]()) { case (acc, pal) =>
+      if (acc.isEmpty || acc.exists(_.length < pal.length))
+        (acc :+ pal).sortBy(- _.length).take(3)
+      else
+        acc
+    }
   }
 
   private def palindromeBetween(startIndex: Int, endIndex: Int): Palindrome = {
